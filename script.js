@@ -1,5 +1,6 @@
 let timeLeft = 25 * 60; // 25 minutes in seconds
 let timerId = null;
+let isRunning = false;
 
 const minutesDisplay = document.getElementById('minutes');
 const secondsDisplay = document.getElementById('seconds');
@@ -14,24 +15,34 @@ function updateDisplay() {
     secondsDisplay.textContent = seconds.toString().padStart(2, '0');
 }
 
-function startTimer() {
-    if (timerId === null) {
+function toggleTimer() {
+    if (!isRunning) {
         timerId = setInterval(() => {
             timeLeft--;
             updateDisplay();
-            
             if (timeLeft === 0) {
                 clearInterval(timerId);
                 timerId = null;
+                isRunning = false;
+                startButton.textContent = 'Start';
                 alert('Time is up!');
             }
         }, 1000);
+        isRunning = true;
+        startButton.textContent = 'Pause';
+    } else {
+        clearInterval(timerId);
+        timerId = null;
+        isRunning = false;
+        startButton.textContent = 'Start';
     }
 }
 
 function stopTimer() {
     clearInterval(timerId);
     timerId = null;
+    isRunning = false;
+    startButton.textContent = 'Start';
 }
 
 function resetTimer() {
@@ -40,7 +51,7 @@ function resetTimer() {
     updateDisplay();
 }
 
-startButton.addEventListener('click', startTimer);
+startButton.addEventListener('click', toggleTimer);
 stopButton.addEventListener('click', stopTimer);
 resetButton.addEventListener('click', resetTimer);
 
