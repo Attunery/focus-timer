@@ -91,4 +91,30 @@ button:hover {
         font-size: 1rem;
         padding: 0.7rem 1.2rem;
     }
+}
+
+.custom-time {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #232946;
+}
+
+.custom-time label {
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+.custom-time select {
+    padding: 0.4rem 1rem;
+    border-radius: 0.7rem;
+    border: 1px solid #e0e0e0;
+    background: #f6f6f6;
+    color: #232946;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.custom-time select:focus {
+    border: 1.5px solid #a3cef1;
 } 

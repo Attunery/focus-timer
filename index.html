@@ -9,6 +9,16 @@
 <body>
     <div class="container">
         <h1>Focus Timer</h1>
+        <div class="custom-time">
+            <label for="customTime">Set Timer: </label>
+            <select id="customTime">
+                <option value="30">30 seconds</option>
+                <option value="60">1 minute</option>
+                <option value="300">5 minutes</option>
+                <option value="1500" selected>25 minutes</option>
+                <option value="10">10 seconds</option>
+            </select>
+        </div>
         <div class="timer">
             <span id="minutes">25</span>:<span id="seconds">00</span>
         </div>
